@@ -1,0 +1,233 @@
+/* NAVBAR STYLING */
+.navbar-toggler:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.navbar-nav{
+    gap: 5rem;
+    font-size: 1.2rem;
+    font-family: 'Montserrat';
+    font-weight: 400;
+}
+
+.nav-link{
+    color: black;
+}
+
+@media(max-width: 991.98px){
+    .navbar-nav{
+        gap: 0;
+        font-size: .9rem;
+        margin-left: 3rem !important;
+        margin-top: 1rem;
+    }
+}
+
+@media(max-width: 552px){
+    .navbar{
+        padding: .7rem 0rem !important;
+    }
+
+   .navbar-brand{  
+        margin-left: 1rem !important;
+   }
+
+   .navbar-toggler{
+    margin-right: 1rem !important;
+   }
+
+   .navbar-nav{
+    margin-left: 1rem !important;
+    margin-top: .4rem;
+    }
+
+    .logo{
+        width: 12rem;
+        height: 2.8rem;
+    }
+}
+
+@media(max-width: 400px){
+    .navbar-brand{  
+        margin-left: 0 !important;
+   }
+
+   .navbar-toggler{
+    margin-right: 0 !important;
+   }
+
+    .logo{
+        width: 10.5rem;
+        height: 2.4rem;
+    }
+}
+
+
+/* CARD SECTION */
+.service{
+    font-family: 'Segoe UI';
+    font-weight: 900;
+    font-size: 4rem;
+}
+.card-text{
+    font-size: 1.25rem;
+    padding: 0rem 2rem;
+}
+
+.view{
+    color: rgb(140, 94, 197);
+    font-family: 'Montserrat';
+    font-weight: 500;
+}
+
+.card-container{
+    width: 48% !important;
+}
+
+@media(max-width: 991.98px){
+    .card-text{
+        font-size: 1.1rem;
+    }
+
+    .view{
+        font-size: 1rem !important;
+    }
+}
+
+@media(max-width: 767.98px){
+    .service{
+        margin-left: 1rem !important;
+    }
+
+    .service-p{
+        margin-left: 1rem !important;
+    }
+
+    .card-row{
+        flex-direction: column;
+    }
+
+    .card-container{
+        width: 95% !important;
+        margin-left: 0 !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .card-text{
+        font-size: 1.15rem;
+        padding: 0rem 4.56rem;
+    }
+
+    .view{
+        font-size: 1rem !important;
+    }
+}
+
+@media(max-width: 575.98px){
+    .service{
+        font-size: 3rem;
+    }
+
+    .card-text{
+        padding: 0;
+        font-size: 1rem;
+    }
+
+    .view{
+        font-size: .9rem !important;
+    }
+}
+
+/* CONTACT SECTION */
+.eighth-row{
+    background: url('../image/contact-overlay.3bbaddf71379.png'), linear-gradient(rgba(140, 94, 197, 1), rgba(140, 94, 197, 1));
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 10rem;
+}
+
+.eighth-col{
+    width: 62%;
+}
+
+.eighth-btn{
+    letter-spacing: 2px;
+    font-family: 'Montserrat';
+    font-weight: 500;
+}
+
+@media(max-width: 991.98px){
+    .eighth-row{
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .eighth-col{
+        margin: 0 !important;
+        width: 75%;
+        text-align: center;
+    }
+
+    .eighth-col2{
+        width: 100%;
+        margin: auto;
+    }
+}
+
+@media(max-width: 767.98px){
+    .eighth-btn{
+        padding: 1rem 1.5rem !important;
+        font-size: .9rem;
+    }
+}
+
+/* FOOTER SECTION */
+.footer{
+    background: black;
+}
+
+.footer-col{
+    width: 25%;
+}
+
+.footer-gray{
+    font-size: .8rem;
+}
+
+@media(max-width: 991.98px){
+    .footer-col{
+        width: 40%;
+    }
+
+    .footer-list{
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
+
+@media(max-width: 767.98px){
+    .footer{
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+
+    .footer-col{
+        width: 80%;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-list{
+        margin: 0 !important;
+    }
+
+    .footer-icon{
+        width: fit-content;
+        margin: auto;
+    }
+
+    .oz{
+        border-top: 1.5px solid gainsboro;
+    }
+}
