@@ -63,12 +63,12 @@
     }
 }
 
-/* ===== FUELLIN SECTION ====== */
+/* ===== PROGRAMMING SECTION ====== */
 .text-col{
     padding: 0rem 2.8rem;
 }
 
-.fuelling-heading{
+.programming-heading{
     font-family: 'segoe ui';
     font-weight: 700;
     font-size: 4rem;
@@ -92,7 +92,7 @@
 }
 
 @media(max-width: 991.98px){
-    .fuelling-row{
+    .programming-row{
         flex-direction: column;
         gap: 2rem;
         align-items: center !important;
@@ -102,7 +102,7 @@
         width: 90% ;
     }
 
-    .fuelling-img{
+    .programming-img{
         width: 83%;
     }
 }
@@ -113,35 +113,12 @@
         padding: 0rem 2rem;
     }
 
-    .fuelling-img{
+    .programming-img{
         width: 93%;
     }
 
-    .fuelling-heading{
+    .programming-heading{
         font-size: 3.5rem;
-    }
-}
-
-/* ==== TABLE SECTION ==== */
-@media(max-width: 768.98px){
-    .table-section{
-        overflow-x: scroll;
-    }
-
-    .table{
-        width: 120%;
-    }
-
-    .spacex-col{
-        padding-left: 5rem !important;
-        padding-right: 5rem !important;
-    }
-}
-
-@media(max-width: 575.98px){
-    .spacex-col{
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
     }
 }
 
