@@ -127,7 +127,7 @@ small{
 
 @media(max-width: 767.98px){
     .contact-heading{
-        font-size: 3rem;
+        font-size: 3rem !important;
     }
 
     .tel{
