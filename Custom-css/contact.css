@@ -63,7 +63,105 @@
     }
 }
 
+/* ===== CONTACT SECTION ===== */
+.contact-heading{
+    font-family: 'Montserrat';
+    font-weight: 800;
+    font-size: 4rem;
+}
 
+.tel{
+    font-family: 'Montserrat';
+    text-decoration: none;
+    color: rgb(134, 88, 189);
+}
+
+.tel:hover{
+    color: #6E3DA9;
+}
+
+.email{
+    text-decoration: none;
+    color: rgb(134, 88, 189);
+    font-family: 'Montserrat';
+}
+
+.email:hover{
+    color: #6E3DA9;
+}
+
+/* ====== FORM SECTION ======== */
+.label{
+    color: rgb(194, 194, 194);
+    font-size: 1.3rem;
+}
+.input::placeholder{
+    color: lightgrey;
+    font-size: 1.1rem;
+    font-weight: 100;
+}
+
+small{
+    color: rgb(152, 152, 152);
+}
+
+.input:focus{
+    border: 2px solid rgba(134, 88, 189, .6) !important;
+    outline: 4px solid rgba(134, 88, 189, .3) !important;
+    box-shadow: none !important;
+    caret-color: rgba(134, 88, 189, .4) !important;
+
+}
+
+.submit-btn{
+    background: rgb(134, 88, 189);
+}
+
+.submit-btn:hover{
+    background: #6E3DA9 !important;
+}
+
+.submit-btn:focus{
+    outline: 3px solid rgba(134, 88, 189, .3) !important;
+}
+
+@media(max-width: 767.98px){
+    .contact-heading{
+        font-size: 3rem;
+    }
+
+    .tel{
+        font-size: 1.1rem !important;
+    }
+
+    .email{
+        font-size: 1.2rem !important;
+    }
+
+    .label{
+        font-size: 1.1rem;
+    }
+
+    .form-col{
+        margin: 3rem 0rem !important;
+    }
+
+    .submit-btn{
+        font-size: 1.1rem !important;
+    }
+}
+
+@media(max-width: 575.98px){
+    .detail-col{
+        width: 100% !important;
+        padding: 0rem 1rem !important;
+    }
+
+    .form-col{
+        width: 100% !important;
+        padding: 0rem 1rem !important;
+    }
+}
 
 /* EIGHTH SECTION */
 .eighth-row{

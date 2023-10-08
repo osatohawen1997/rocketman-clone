@@ -118,7 +118,31 @@
     }
 
     .programming-heading{
-        font-size: 3.5rem;
+        font-size: 3rem;
+    }
+}
+
+/* ====== AI SECTION ====== */
+.quote{
+    width: 73% !important;
+}
+
+.quote-p{
+    font-family: 'Montserrat';
+}
+
+@media(max-width: 767.98px){
+    .quote{
+        width: 83% !important;
+    } 
+}
+
+@media(max-width: 575.98px){
+    .quote{
+        width: 100% !important;
+    }
+    .quote-p{
+        font-size: 1.3rem !important;
     }
 }
 

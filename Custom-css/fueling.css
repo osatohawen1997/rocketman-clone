@@ -123,7 +123,10 @@
 }
 
 /* ==== TABLE SECTION ==== */
-@media(max-width: 768.98px){
+.table-p{
+    font-family: 'Montserrat';
+}
+@media(max-width: 767.98px){
     .table-section{
         overflow-x: scroll;
     }
