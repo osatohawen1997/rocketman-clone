@@ -616,3 +616,28 @@
         border-top: 1.5px solid gainsboro;
     }
 }
+
+/* NEWSLETTER BUTTON */
+.form{
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.email:focus{
+    border: 2px solid rgba(134, 88, 189, .6) !important;
+    outline: 4px solid rgba(134, 88, 189, .3) !important;
+    box-shadow: none !important;
+    caret-color: rgba(134, 88, 189, .4) !important;
+
+}
+
+.subscribe{
+    background: rgb(109, 61, 169) !important;
+}
+.subscribe:hover{
+    background: #6E3DA9 !important;
+}
+
+.subscribe:focus{
+    outline: 4px solid #bf8aff ;
+}

@@ -1,0 +1,33 @@
+body, .row{
+    height: 100vh;
+}
+
+body{
+    background: url('../../image/Untitled-1.png'), linear-gradient(rgb(109, 61, 169), rgb(109, 61, 169)) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container .row .column .form-wrapper{
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px);
+}
+
+input:focus{
+    border: 2px solid rgba(134, 88, 189, .6) !important;
+    outline: 4px solid rgba(134, 88, 189, .3) !important;
+    box-shadow: none !important;
+    caret-color: rgba(134, 88, 189, .4) !important;
+
+}
+
+button{
+    background: rgb(109, 61, 169) !important;
+}
+button:hover{
+    background: #6E3DA9 !important;
+}
+
+button:focus{
+    outline: 4px solid #bf8aff ;
+}

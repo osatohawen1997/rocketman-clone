@@ -1,3 +1,8 @@
+<?php
+  include 'connect.php';
+  
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,9 +21,6 @@
     <link href="asset/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="asset/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="asset/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-    <link href="asset/vendor/aos/aos.css" rel="stylesheet">
-    <link href="asset/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="asset/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="Custom-css/contact.css">
@@ -37,7 +39,7 @@
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav text-dark ms-auto mx-4">
               <a class="nav-link" href="service.html">SERVICES</a>
-              <a class="nav-link" href="contact.html">CONTACT</a>
+              <a class="nav-link" href="contact.php">CONTACT</a>
               <a class="nav-link" href="https://learnwagtail.com/wagtail-for-beginners/">WAGTAIL COURSE</a>
             </div>
           </div>
@@ -61,22 +63,55 @@
                 <img src="image/history-in-hd-e5eDHbmHprg-unsplash.2e16d0ba.fill-580x335.jpg" alt="astronaunt" class="img-fluid">
             </div>
             <div class="col-md-6 px-5 my-4 form-col">
-              <form action="">
+
+              <?php
+
+                if($_SERVER['REQUEST_METHOD']=='POST'){
+                  $name = $_POST['full_name'];
+                  $company = $_POST['company'];
+                  $email = $_POST['email'];
+                  $message = $_POST['feedback'];
+
+                  if(empty($_POST['full_name'])){
+                    echo"<div class='alert alert-danger'><strong>Error</strong>: Fill in the required field</div>";
+                  }elseif(empty($_POST['company'])){
+                    echo"<div class='alert alert-danger'><strong>Error</strong>: Fill in the required field</div>";
+                  }elseif(empty($_POST['email'])){
+                    echo"<div class='alert alert-danger'><strong>Error</strong>: Fill in the required field</div>";
+                  }elseif(empty($_POST['feedback'])){
+                    echo"<div class='alert alert-danger'><strong>Error</strong>: Fill in the required field</div>";
+                  }else{
+                    
+                    $sql = "INSERT INTO `enquiry` (`full_name`, `company`, `email`, `feedback`) VALUES ('$name', '$company', '$email', '$message')";
+
+                    $result = mysqli_query($connect,$sql);
+
+                    if($result){
+
+                      echo"<div class='alert alert-success'><strong>Success:</strong> Your request has been sent successfully</div>";
+                    }
+                  }
+                                  
+                }
+              ?>
+
+              <form method="post">
                 <label for="" class="label mb-1">Your Name (required)</label>
-                <input type="text" name="Name" id="" class="form-control rounded-0 border-2 input mb-3" required placeholder="Your Name">
+                <input type="text" name="full_name" class="form-control rounded-0 border-2 input mb-3" placeholder="Your Name" autocomplete="off" >
 
                 <label for="" class="label mb-1">Your Company (required)</label>
-                <input type="text" name="Company" id="" class="form-control rounded-0 border-2 input" required placeholder="Your Company">
+                <input type="text" name="company" class="form-control rounded-0 border-2 input" placeholder="Your Company" autocomplete="off" >
                 <small class=" pb-5">SpaceX, Blue Origin, NASA, Virgin Galactic, Galactic Empire?</small>
 
                 <label for="" class="label mb-1 mt-2">Your Email (required)</label>
-                <input type="email" name="Email" id="" class="form-control rounded-0 border-2 input mb-3" required placeholder="Your Email">
+                <input type="email" name="email" class="form-control rounded-0 border-2 input mb-3" placeholder="Your Email" autocomplete="off" >
 
                 <label for="" class="label mb-1">Your Message (required)</label>
-                <textarea name="Message" id="" cols="57" rows="10" placeholder="Your Message" class="form-control rounded-0 border-2 input mb-3"></textarea>
+                <textarea name="feedback" cols="57" rows="10" placeholder="Your Message" class="form-control rounded-0 border-2 input mb-3" autocomplete="off" ></textarea>
 
-                <button type="submit" class="btn submit-btn rounded-0 text-light py-2 fs-5 px-5">SUBMIT</button>
+                <input type="submit" name="submit" class="btn submit-btn rounded-0 text-light py-2 fs-5 px-5" value = "SUBMIT">
               </form>
+              
             </div>
         </div>
     </div>
@@ -92,7 +127,7 @@
           </div>
   
           <div class="col-md-3 text-center eighth-col2 ms-auto">
-            <a href="contact.html" class="btn btn-light eighth-btn rounded-0 py-3 px-5">CONTACT US</a>
+            <a href="contact.php" class="btn btn-light eighth-btn rounded-0 py-3 px-5">CONTACT US</a>
           </div>
         </div>
       </div>
@@ -142,11 +177,5 @@
 
     <!-- Bootstrap JS -->
     <script src="asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="asset/vendor/aos/aos.js"></script>
-    <script src="asset/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="asset/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="asset/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="asset/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="asset/vendor/php-email-form/validate.js"></script>
 </body>
 </html>
