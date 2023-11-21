@@ -1,8 +1,7 @@
 <?php
 include '../connect.php';
-
 session_start();
-
+session_destroy();
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +46,6 @@ session_start();
 
                     <?php
 
-
                         if($_SERVER['REQUEST_METHOD'] == 'POST'){
                             $username = $_POST['username'];
                             $password = $_POST['password'];
@@ -57,14 +55,15 @@ session_start();
                             $result = mysqli_query($connect, $sql);
 
                             if($result){
-                                $num = mysqli_fetch_assoc($result);
+                                $num = mysqli_num_rows($result);
                                 if($num > 0){
-                                    header("location: dashboard.html");
+                                    echo"<div class='alert alert-success mt-3'><strong>Success</strong>: Log in successful</div>";
+                                    header("location: dashboard.php");
                                 }else{
                                     echo"<div class='alert alert-danger mt-3'><strong>Error</strong>: Invalid credentials</div>";
                                 }
                             }else{
-                                die(mysqli_erro($connect));
+                                die(mysqli_error($connect));
                             }
                                 
                         }

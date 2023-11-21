@@ -1,35 +1,3 @@
-<?php
-include 'connect.php';
-
-$success = 0;
-$error = 0;
-
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-  
-  $email = $_POST['email'];
-
-  $sql = "SELECT * FROM `newsletter` WHERE (`email`) = ('$email')";
-  $result = mysqli_query($connect,$sql);
-
-  if($result){
-    $num = mysqli_num_rows($result);
-
-    if($num > 0){
-      $error = 1;
-    }else{
-      $sql = "INSERT INTO `newsletter` (`email`) VALUES ('$email')";
-      $result = mysqli_query($connect,$sql);
-
-      if($result){
-        $success = 1;
-      }else{
-        die(mysqli_error($connect));
-      }
-    }
-  }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,6 +16,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <link href="asset/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="asset/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="asset/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="asset/vendor/aos/aos.css" rel="stylesheet">
+    <link href="asset/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="asset/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="Custom-css/style.css">
@@ -60,14 +31,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <!-- navbar section -->
     <nav class="navbar navbar-expand-lg bg-body-light py-4">
         <div class="container-fluid">
-          <a class="navbar-brand mx-5" href="index.php"><img src="image/logo.png" alt="Rocketman-logo" class="logo"></a>
+          <a class="navbar-brand mx-5" href="index.html"><img src="image/logo.png" alt="Rocketman-logo" class="logo"></a>
           <button class="navbar-toggler mx-5 rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav text-dark ms-auto mx-4">
               <a class="nav-link" href="service.html">SERVICES</a>
-              <a class="nav-link" href="contact.php">CONTACT</a>
+              <a class="nav-link" href="contact.html">CONTACT</a>
               <a class="nav-link" href="https://learnwagtail.com/wagtail-for-beginners/">WAGTAIL COURSE</a>
             </div>
           </div>
@@ -81,7 +52,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             <div class="col-12 hero-col">
                 <h1 class="text-light hero-h1 mx-4">Supreme Rocket Maintenance</h1>
                 <p class="hero-p mx-4 my-4 text-light fs-3">Your rocket is your $1,000,000,000 baby. We get that.</p>
-                <a href="contact.php" class="btn btn-light mx-4 my-4 rounded-0 contact-btn py-3">CONTACT US</a>
+                <a href="contact.html" class="btn btn-light mx-4 my-4 rounded-0 contact-btn py-3">CONTACT US</a>
             </div>
         </div>
     </div>
@@ -112,7 +83,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             <div class="card-body my-4 text-center">
               <b class="fs-4">Rockets are cool!</b>
               <p class="card-text py-4 fs-5 card-p">Especially when you see photos like this one 🤤</p>
-              <a href="contact.php" class="text-decoration-none view"> CONTACT US &ThickSpace; <i class="fa fas fa-chevron-right"></i></a>
+              <a href="contact.html" class="text-decoration-none view"> CONTACT US &ThickSpace; <i class="fa fas fa-chevron-right"></i></a>
             </div>
           </div>
         </div>
@@ -176,7 +147,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
       <div class="row py-5 sixth-row">
         <div class="col-md-12 text-center">
           <div class="display-6 skynet">We've also partnered with Skynet to maintain humanoid robotics.</div>
-          <a href="contact.php" class="btn skynet-btn my-4 px-5 py-3 rounded-0 text-light">CONTACT US</a>
+          <a href="contact.html" class="btn skynet-btn my-4 px-5 py-3 rounded-0 text-light">CONTACT US</a>
         </div>
       </div>
     </div>
@@ -200,7 +171,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         </div>
 
         <div class="col-md-3 text-center eighth-col2 ms-auto">
-          <a href="contact.php" class="btn btn-light eighth-btn rounded-0 py-3 px-5">CONTACT US</a>
+          <a href="contact.html" class="btn btn-light eighth-btn rounded-0 py-3 px-5">CONTACT US</a>
         </div>
       </div>
     </div>
@@ -208,36 +179,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <!-- Footer section -->
     <div class="container-fluid footer">
       <div class="row justify-content-center">
-        <div class="col-lg-7 col-sm-11 my-5 text-center">
-          <div class="footer-newsletter">
-            <h5 class="text-light">For more updates and guidelines on rocket maintenance.</h5>
-            <h5 class="text-light mb-3">Subscribe to our NEWSLETTER today</h5>
-          </div>
-          <form method="post" class="d-flex gap-3 py-3 px-3 form rounded align-items-center">
-            <input type="email" name="email" class="email form-control py-2" placeholder="Email Address" autocomplete="off" required>
-            <button type="submit" class="btn text-light fw-bold subscribe px-3 py-2">SUBSCRIBE</button>
-            <span class="text-light">
-              <?php
-              if($success){
-                echo"<p class='text-success m-auto'>Subscribed</p>";
-              }
-              ?>
-
-              <?php
-              if($error){
-                echo"<p class='text-danger'>Already subscribed</p>";
-              }
-              ?>
-            </span>
-          </form>
-        </div>
-      </div>
-      <div class="row justify-content-center">
         <div class="col-md-2 footer-col">
           <ul class="list-unstyled my-5 mx-4 footer-list">
             <li class="text-decoration-none text-secondary fw-bold mb-2 footer-gray">LINKS</a></li>
             <li class="mb-2"><a href="service.html" class="text-decoration-none text-light fs-5 footer-link">Services</a></li>
-            <li class="mb-2"><a href="contact.php" class="text-decoration-none text-light fs-5 footer-link">Contact</a></li>
+            <li class="mb-2"><a href="contact.html" class="text-decoration-none text-light fs-5 footer-link">Contact</a></li>
             <li><a href="https://learnwagtail.com/wagtail-for-beginners/" class="text-decoration-none text-light fs-5 footer-link">Wagtail Course</a></li>
           </ul>
         </div>
@@ -272,8 +218,20 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         </div>
       </div>
     </div>
+    
+
+
+
+
+    <div id="preloader"></div>
 
     <!-- Bootstrap JS -->
     <script src="asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="asset/vendor/aos/aos.js"></script>
+    <script src="asset/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="asset/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="asset/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="asset/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="asset/vendor/php-email-form/validate.js"></script>
 </body>
 </html>

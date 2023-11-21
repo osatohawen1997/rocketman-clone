@@ -32,7 +32,7 @@
     <!-- navbar section -->
     <nav class="navbar navbar-expand-lg border-bottom bg-body-light py-4">
         <div class="container-fluid">
-          <a class="navbar-brand mx-5" href="index.html"><img src="image/logo.png" alt="Rocketman-logo" class="logo"></a>
+          <a class="navbar-brand mx-5" href="index.php"><img src="image/logo.png" alt="Rocketman-logo" class="logo"></a>
           <button class="navbar-toggler mx-5 rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
