@@ -139,7 +139,7 @@
             <ul class="list-unstyled my-5 mx-4 footer-list">
               <li class="text-decoration-none text-secondary fw-bold mb-2 footer-gray">LINKS</a></li>
               <li class="mb-2"><a href="service.html" class="text-decoration-none text-light fs-5 footer-link">Services</a></li>
-              <li class="mb-2"><a href="contact.html" class="text-decoration-none text-light fs-5 footer-link">Contact</a></li>
+              <li class="mb-2"><a href="contact.php" class="text-decoration-none text-light fs-5 footer-link">Contact</a></li>
               <li><a href="https://learnwagtail.com/wagtail-for-beginners/" class="text-decoration-none text-light fs-5 footer-link">Wagtail Course</a></li>
             </ul>
           </div>

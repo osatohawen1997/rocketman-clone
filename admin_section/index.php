@@ -1,7 +1,7 @@
 <?php
 include '../connect.php';
 session_start();
-session_destroy();
+
 ?>
 
 <!DOCTYPE html>
@@ -47,16 +47,20 @@ session_destroy();
                     <?php
 
                         if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                            $username = $_POST['username'];
+                            $user = $_POST['username'];
                             $password = $_POST['password'];
 
-                            $sql = "SELECT * FROM `admin` WHERE (`username`, `password`) = ('$username', '$password')";
+                            $sql = "SELECT * FROM `admin` WHERE (`username`, `password`) = ('$user', '$password')";
 
                             $result = mysqli_query($connect, $sql);
 
                             if($result){
-                                $num = mysqli_num_rows($result);
+                                $num = mysqli_fetch_assoc($result);
                                 if($num > 0){
+                                    $_SESSION['id'] = $num['id'];
+                                    $_SESSION['username'] = $num['username'];
+                                    $_SESSION['password'] = $num['password'];
+
                                     echo"<div class='alert alert-success mt-3'><strong>Success</strong>: Log in successful</div>";
                                     header("location: dashboard.php");
                                 }else{

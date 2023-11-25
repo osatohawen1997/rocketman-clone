@@ -2,16 +2,16 @@
 include '../connect.php';
 
 session_start();
-if(isset($_SESSION['id']) && isset($_SESSION['username'])){
+// $_SESSION['username'] = $user;
+$username = 0;
+$user_error = 0;
 
-    $username = $_SESSION['username'];
-    // header('location: index.php');
+if(isset($_SESSION['username'])){
+    $username = 1;
+    
+}else{
+    $user_error = 1;
 }
-
-session_destroy();
-session_start();
-$_SESSION['username'] = $username;
-ob_start();
 
 
 ?>
@@ -44,30 +44,9 @@ ob_start();
 </head>
 <body>
 
-    <style>
-        .log{
-        
-            width: 20% !important;
-        }
-    
-        .mainbar .container-fluid .analystic .icon{
-            background: white;
-        }
-
-        .mainbar .table-row{
-            overflow-x: auto;
-        }
-
-        .fa-comments, .fa-users{
-            /* color: rgb(154, 79, 245); */
-            font-size: 4rem !important;
-        }
-    </style>
-
-
     <nav class="navbar bg-dark navbar-expand-lg">
         <div class="container-fluid">
-          <button type="button" class="btn"><i class="fa fas fa-ellipsis-v sidebar-btn text-light fs-3"></i></button>
+          <button type="button" class="btn"><i class="fa fas fa-ellipsis-v sidebar-btn text-light fs-3 d-none"></i></button>
 
           <a class="navbar-brand m-auto text-light" href="#">ADMIN DASHBOARD</a>
           
@@ -95,40 +74,50 @@ ob_start();
 
     <div class="wrapper d-flex">
         <div class="sidebar border px-3 position-relative">
-            <div class="user-wrapper btn-light px-2 py-2 mt-3 shadow rounded-2 d-flex align-items-center justify-content-between">
-                <div class="icon"><i class="fa far fa-user-circle fs-2"></i></div>
-                <div class="admin-name mt-2">
-                    <p>Welcome,
-                    <?php 
-                       echo ($_SESSION['username']);
-                    ?>
-                    </p>
+            <div class="position-fixed user-wrapper px-2">
+                <div class="user-container m-auto px-2 py-2 mt-3 shadow rounded-2 d-flex align-items-center justify-content-between">
+                    <div class="admin-name d-flex align-items-center gap-3">
+                        <i class="fa far fa-user-circle fs-2"></i>
+                        <small>Welcome,
+                        <?php 
+                           if($username){
+                            echo $_SESSION['username'];
+                           }
+                        ?>
+    
+                        <?php 
+                           if($user_error){
+                            header("location:index.php");
+                           }
+                        ?>
+                        </small>
+                    </div>
+                    <div class="">
+                        <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fas fa-ellipsis-v text-end fs-4"></i></button>
+    
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="edit.php"><i class="fa far fa-edit"></i> Edit profile</a></li>
+                            <li><button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fas fa-power-off"></i> Log out</button>
+                            </li>
+                        </ul>
+    
+                    </div>
                 </div>
-                <div class="">
-                    <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fas fa-ellipsis-v text-end fs-4"></i></button>
-
-                    <ul class="dropdown-menu text-center">
-                        <li><a class="dropdown-item" href="edit.php">Edit profile</a></li>
+    
+                <div class="listing px-1">
+                    <ul class="list-unstyled mt-4">
+                        <li class=""><a href="" class="text-decoration-none text-dark">Feedbacks</a></li>
+                        <hr>
+                        <li><a href="#newsletter" class="text-decoration-none text-dark ">Newsletter Subscribers</a></li>
+                        <hr>
+                        <li><a href="" class="text-decoration-none text-dark "></a></li>
                     </ul>
-
                 </div>
+    
             </div>
-
-            <div class="listing">
-                <ul class="list-unstyled mt-4">
-                    <li class=""><a href="" class="text-decoration-none text-dark">Feedbacks</a></li>
-                    <hr>
-                    <li><a href="" class="text-decoration-none text-dark ">Newsletter Subscribers</a></li>
-                    <hr>
-                    <li><a href="" class="text-decoration-none text-dark "></a></li>
-                </ul>
-            </div>
-
-            <button type="button" class="btn btn-dark start-0 mb-3 rounded-0 log me-2 position-fixed bottom-0" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fas fa-power-off"></i> Log out</button>
         </div>
         <div class="mainbar">
             <div class="container-fluid">
-
                 <div class="row py-5 analystic justify-content-center gap-5">
                     <div class="col-lg-3 col-sm-3 icon text-center rounded-3 shadow px-3 py-1">   
                         <i class="fa fas fa-comments mt-3"></i>
@@ -165,7 +154,7 @@ ob_start();
                         ?>
                     </div>
                     <div class="col-lg-3 col-sm-3 icon text-center rounded-3 shadow px-3 py-1">
-                        <i class="fa fas fa-users mt-3"></i>
+                        <i class="fa fas fa-sync-alt mt-3"></i>
                         <p class="mt-3 fs-5 fw-bold">Numbers of reviews</p>
                     </div>
                 </div>
@@ -216,8 +205,9 @@ ob_start();
                     </div>
                 </div>
                 <div class="container-fluid">
-                    <div class="row justify-content-center mt-4">
+                    <div id="newsletter" class="row justify-content-center mt-4">
                         <div class="col-lg-11 col-sm-12">
+                            <h5 class="fw-bold">Newsletter Subscriber(s)</h5>
                             <?php
 
                                 include 'delete.php';

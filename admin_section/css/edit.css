@@ -1,15 +1,16 @@
 /* Admin dashboard section */
 
 .navbar{
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: +9999;
+position: fixed;
+width: 100%;
+z-index: +2;
+top: 0;
+z-index: +9999;
 }
 
 .wrapper{
     margin-top: 3.5rem;
-    height: fit-content;
+    height: 100vh;
     overflow-y: hidden;
 }
 
@@ -24,7 +25,6 @@
     width: inherit;
     left: 0;
     height: 100vh;
-
 }
 
 .wrapper .sidebar .user-wrapper .user-container{
@@ -46,34 +46,8 @@
     overflow-x: auto;
 }
 
-.fa-comments, .fa-users, .fa-sync-alt{
+.fa-comments, .fa-users{
     font-size: 4rem !important;
-}
-
-.fa-sync-alt:hover{
-    animation: rotate 3s infinite;
-}
-
-@keyframes rotate{
-    0%{
-        transform: rotate(0deg);
-    }
-
-    25%{
-        transform: rotate(90deg);
-    }
-
-    50%{
-        transform: rotate(180deg);
-    }
-
-    75%{
-        transform: rotate(270deg);
-    }
-
-    100%{
-        transform: rotate(360deg);
-    }
 }
 
 .wrapper .mainbar{
@@ -94,4 +68,36 @@
         width: 100% !important;
     }
 
+}
+
+.mainbar .container-fluid .form-row .icon{
+    background: white;
+}
+
+input:focus{
+    border: 2px solid rgba(134, 88, 189, .6) !important;
+    outline: 4px solid rgba(134, 88, 189, .3) !important;
+    box-shadow: none !important;
+    caret-color: rgba(134, 88, 189, .4) !important;
+
+}
+
+.submit-btn{
+    background: rgb(134, 88, 189);
+}
+
+.submit-btn:hover{
+    background: #6E3DA9 !important;
+}
+
+.submit-btn:focus{
+    outline: 3px solid rgba(134, 88, 189, .3) !important;
+}
+
+@media (max-width: 575.98px){
+    .form-wrapper{
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+
+    }
 }
